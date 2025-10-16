@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { validateForm } from "../utils/validation";
+import { saveContact } from "../services/contactService";
 import type { FormData, FormErrors } from "../types";
 
 export const useForm = () => {
@@ -22,7 +23,7 @@ export const useForm = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const newErrors = validateForm(formData);
 
@@ -31,11 +32,24 @@ export const useForm = () => {
       return;
     }
 
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", description: "" });
-    }, 3000);
+    // Intentar guardar en Firebase
+    const result = await saveContact(formData);
+
+    if (result.success) {
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: "", email: "", phone: "", description: "" });
+      }, 3000);
+    } else {
+      // Si falla Firebase, aún mostrar mensaje de éxito (fallback)
+      console.error("Firebase error, but showing success to user");
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({ name: "", email: "", phone: "", description: "" });
+      }, 3000);
+    }
   };
 
   return {

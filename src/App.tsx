@@ -1,16 +1,16 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
-import { HeroSection } from "./components/sections/HeroSection";
-import { ServicesSection } from "./components/sections/ServicesSection";
-import { ContactSection } from "./components/sections/ContactSection";
-import { useForm } from "./hooks/useForm";
-import { useScrollTo } from "./hooks/useScrollTo";
+import { HomePage } from "./pages/HomePage";
+import { BlogPage } from "./pages/BlogPage";
+import { LoadingScreen } from "./components/ui/LoadingScreen";
+import { ChatWidget } from "./components/ui/ChatWidget";
+import { NewsletterPopup } from "./components/ui/NewsletterPopup";
 import { useMobileMenu } from "./hooks/useMobileMenu";
+import { useScrollTo } from "./hooks/useScrollTo";
 
 const App = () => {
-  const { formData, errors, isSubmitted, handleInputChange, handleSubmit } =
-    useForm();
-  const { scrollToSection } = useScrollTo();
   const mobileMenu = useMobileMenu();
+  const { scrollToSection } = useScrollTo();
 
   const handleNavigate = (section: string) => {
     scrollToSection(section);
@@ -18,24 +18,21 @@ const App = () => {
   };
 
   return (
-    <Layout
-      isMenuOpen={mobileMenu.isOpen}
-      onToggleMenu={mobileMenu.toggle}
-      onNavigate={handleNavigate}
-    >
-      <HeroSection
-        onNavigateToContact={() => handleNavigate("contacto")}
-        onNavigateToServices={() => handleNavigate("servicios")}
-      />
-      <ServicesSection />
-      <ContactSection
-        formData={formData}
-        errors={errors}
-        isSubmitted={isSubmitted}
-        onInputChange={handleInputChange}
-        onSubmit={handleSubmit}
-      />
-    </Layout>
+    <BrowserRouter>
+      <LoadingScreen />
+      <Layout
+        isMenuOpen={mobileMenu.isOpen}
+        onToggleMenu={mobileMenu.toggle}
+        onNavigate={handleNavigate}
+      >
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/blog" element={<BlogPage />} />
+        </Routes>
+      </Layout>
+      <ChatWidget />
+      <NewsletterPopup />
+    </BrowserRouter>
   );
 };
 

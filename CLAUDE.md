@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a single-page React application built with TypeScript, Vite, and Tailwind CSS v4. It's a landing page for a web development service ("WebPro") offering website creation services. The app is written in Spanish and features a responsive design with sections for hero/intro, services, and contact form.
+This is a React application built with TypeScript, Vite, and Tailwind CSS v4. It's a landing page for a web development service ("HazMiWeb") offering website creation services. The app is written in Spanish and features a responsive design with sections for hero/intro, services, and contact form. The project has been refactored into a modular component architecture for better scalability and maintainability.
 
 ## Tech Stack
 
@@ -36,11 +36,24 @@ npm run lint
 
 ## Project Structure
 
-- **`src/App.tsx`** - Main application component containing all page sections (navbar, hero, services, contact form, footer). This is a single-component architecture - all UI logic is in one file.
-- **`src/main.tsx`** - Application entry point that mounts the React app
-- **`src/index.css`** - Global styles (minimal, relies on Tailwind)
-- **`src/App.css`** - Component-specific styles (if needed)
-- **`public/`** - Static assets served as-is
+The project follows a modular component architecture:
+
+```
+src/
+├── components/
+│   ├── layout/          # Navbar, Footer, Layout
+│   ├── sections/        # HeroSection, ServicesSection, ContactSection
+│   ├── ui/              # Button, Input, TextArea, ServiceCard
+│   └── forms/           # ContactForm, SuccessMessage
+├── hooks/               # useForm, useScrollTo, useMobileMenu
+├── utils/               # constants, validation
+├── types/               # TypeScript interfaces
+├── App.tsx              # Main app with routing (refactored to ~43 lines)
+├── main.tsx             # Application entry point
+└── index.css            # Global styles
+```
+
+- **`public/`** - Static assets including the HazMiWeb logo
 - **`index.html`** - HTML template
 
 ## Key Configuration Files
@@ -62,14 +75,15 @@ npm run lint
 
 ## Architecture Notes
 
-### Single Component Design
-The entire application is contained in a single `App.tsx` component (~410 lines). This is intentional for a simple landing page and makes the code easy to navigate. All state management, form handling, and UI sections are in this one component.
+### Modular Component Architecture
+The application has been refactored from a single-component design (~410 lines) into a modular architecture with separate components for each section. This improves maintainability, reusability, and scalability.
 
 ### State Management
 - Uses React `useState` hooks for local state
+- Custom hooks (`useForm`, `useScrollTo`, `useMobileMenu`) encapsulate logic
 - No external state management library (Redux, Zustand, etc.)
-- Form state: `formData`, `errors`, `isSubmitted`
-- UI state: `isMenuOpen` for mobile navigation
+- Form state managed by `useForm` hook
+- UI state managed by individual components
 
 ### Styling Approach
 - Uses Tailwind CSS v4 (note: this is the newer version with different setup)
@@ -121,21 +135,55 @@ The build output goes to `dist/` directory. This is a static site and can be dep
 
 Run `npm run build` to generate production-ready files.
 
-## Refactoring to Component Architecture
+## Enhancement Guides
 
-The current codebase uses a single-component architecture which is great for getting started but may not scale well. There is a comprehensive refactoring guide available in **`REFACTORING_GUIDE.md`** that provides:
+### Refactoring (Completed)
+The project has been successfully refactored from a single-component architecture to a modular design. See **`REFACTORING_GUIDE.md`** for the complete documentation of this process, including:
+- Component breakdown and organization
+- Custom hooks implementation
+- Reusable UI components
+- Best practices for scalability
 
-- Step-by-step instructions to break down `App.tsx` into modular components
-- Proposed folder structure (components, hooks, utils, types)
-- Complete code examples for each new component
-- Custom hooks for form handling, navigation, and mobile menu
-- Reusable UI components (Button, Input, TextArea, ServiceCard)
-- Best practices for scalability and maintainability
+### Expansion and Improvements
+For making the project larger, more modern, and professional, see **`ENHANCEMENT_GUIDE.md`** which provides step-by-step instructions for:
 
-**When to refactor:**
-- When adding multiple new pages or sections
-- When the team grows beyond 1-2 developers
-- When components need to be reused in different contexts
-- When the App.tsx file becomes difficult to navigate (it's already ~410 lines)
+**Phase 1: Animations**
+- Framer Motion integration
+- Reusable animation components (FadeIn, ScaleIn, Parallax)
+- Hover effects and transitions
 
-Refer to `REFACTORING_GUIDE.md` for the complete migration path.
+**Phase 2: New Sections**
+- Testimonials section
+- Pricing/Plans section
+- Portfolio with filterable projects
+- FAQ accordion section
+
+**Phase 3: Navigation**
+- React Router implementation
+- Multi-page architecture
+- Blog page and additional routes
+
+**Phase 4: Visual Improvements**
+- Glass morphism effects
+- Animated gradients
+- Custom cursor (optional)
+- Scroll progress bar
+- Loading screen
+
+**Phase 5: Professional Features**
+- Chat widget
+- Newsletter popup
+- Lazy loading images
+- SEO optimization
+
+**Phase 6: Backend (Optional)**
+- Firebase integration
+- Contact form database storage
+- Analytics
+
+**Phase 7: Performance**
+- Code splitting
+- Image optimization
+- Bundle size optimization
+
+Refer to `ENHANCEMENT_GUIDE.md` for complete code examples and implementation details.
