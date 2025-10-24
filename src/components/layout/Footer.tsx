@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Github, ArrowUp } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { COMPANY_NAME, CONTACT_INFO } from "../../utils/constants";
@@ -24,14 +24,6 @@ export const Footer: React.FC = () => {
     { name: "SEO Optimización", href: "/#servicios" },
     { name: "Hosting & Dominio", href: "/#servicios" },
     { name: "Mantenimiento Web", href: "/#servicios" },
-  ];
-
-  const socialLinks = [
-    { icon: Facebook, href: "https://facebook.com/hazmiweb", label: "Facebook" },
-    { icon: Twitter, href: "https://twitter.com/hazmiweb", label: "Twitter" },
-    { icon: Instagram, href: "https://instagram.com/hazmiweb", label: "Instagram" },
-    { icon: Linkedin, href: "https://linkedin.com/company/hazmiweb", label: "LinkedIn" },
-    { icon: Github, href: "https://github.com/hazmiweb", label: "GitHub" },
   ];
 
   return (
@@ -64,32 +56,10 @@ export const Footer: React.FC = () => {
               />
               <span className="font-bold text-2xl text-gradient">{COMPANY_NAME}</span>
             </div>
-            <p className="text-gray-400 leading-relaxed mb-6 text-sm">
+            <p className="text-gray-400 leading-relaxed text-sm">
               Transformamos ideas en experiencias digitales excepcionales. Creamos sitios web que no solo se ven bien,
               sino que funcionan mejor.
             </p>
-
-            {/* Redes sociales */}
-            <div className="flex gap-3">
-              {socialLinks.map((social, idx) => (
-                <motion.a
-                  key={idx}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-lg bg-gray-800/50 border border-gray-700/50 flex items-center justify-center hover:bg-gradient-brand hover:border-blue-500 transition-all duration-300 elevation-1 hover:elevation-3"
-                  whileHover={{ y: -3 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                >
-                  <social.icon className="w-4 h-4" />
-                </motion.a>
-              ))}
-            </div>
           </motion.div>
 
           {/* Columna 2: Enlaces rápidos */}

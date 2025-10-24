@@ -8,24 +8,19 @@ export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "HazMiWeb",
-  "url": "https://hazmiweb.com",
-  "logo": "https://hazmiweb.com/logo.png",
+  "url": "https://hazmiweb.lat",
+  "logo": "https://hazmiweb.lat/logo.png",
   "description": "Creación de sitios web profesionales y modernos para impulsar tu negocio en el mundo digital",
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "ES"
+    "addressCountry": "EC"
   },
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "Customer Service",
-    "email": "contacto@hazmiweb.com",
+    "email": "contacto@hazmiweb.lat",
     "availableLanguage": "Spanish"
-  },
-  "sameAs": [
-    "https://facebook.com/hazmiweb",
-    "https://twitter.com/hazmiweb",
-    "https://linkedin.com/company/hazmiweb"
-  ]
+  }
 };
 
 // Schema para el servicio principal
@@ -36,11 +31,11 @@ export const serviceSchema = {
   "provider": {
     "@type": "Organization",
     "name": "HazMiWeb",
-    "url": "https://hazmiweb.com"
+    "url": "https://hazmiweb.lat"
   },
   "areaServed": {
     "@type": "Country",
-    "name": "España"
+    "name": "Ecuador"
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -91,7 +86,7 @@ export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "HazMiWeb",
-  "url": "https://hazmiweb.com",
+  "url": "https://hazmiweb.lat",
   "description": "Creamos sitios web modernos, profesionales y optimizados para tu negocio",
   "publisher": {
     "@type": "Organization",
@@ -99,7 +94,7 @@ export const websiteSchema = {
   },
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://hazmiweb.com/search?q={search_term_string}",
+    "target": "https://hazmiweb.lat/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 };
@@ -109,12 +104,12 @@ export const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "HazMiWeb",
-  "image": "https://hazmiweb.com/logo.png",
-  "url": "https://hazmiweb.com",
-  "telephone": "+34-XXX-XXX-XXX",
+  "image": "https://hazmiweb.lat/logo.png",
+  "url": "https://hazmiweb.lat",
+  "telephone": "+593-XXX-XXX-XXX",
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "ES"
+    "addressCountry": "EC"
   },
   "priceRange": "$20 - $80",
   "openingHoursSpecification": {
@@ -194,7 +189,7 @@ export const createBlogPostSchema = (article: {
     "name": "HazMiWeb",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://hazmiweb.com/logo.png"
+      "url": "https://hazmiweb.lat/logo.png"
     }
   },
   "datePublished": article.datePublished,
