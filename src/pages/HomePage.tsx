@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { HeroSection } from "../components/sections/HeroSection";
 import { ServicesSection } from "../components/sections/ServicesSection";
 import { PortfolioSection } from "../components/sections/PortfolioSection";
@@ -13,6 +14,19 @@ import { useForm } from "../hooks/useForm";
 export const HomePage: React.FC = () => {
   const { scrollToSection } = useScrollTo();
   const { formData, errors, isSubmitted, handleInputChange, handleSubmit } = useForm();
+  const location = useLocation();
+
+  // Manejar scroll automático cuando se navega con hash desde otras páginas
+  useEffect(() => {
+    if (location.hash) {
+      // Extraer el ID de la sección del hash (ej: "#contacto" -> "contacto")
+      const sectionId = location.hash.substring(1);
+      // Esperar un momento para que el DOM esté listo
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 100);
+    }
+  }, [location, scrollToSection]);
 
   return (
     <>

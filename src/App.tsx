@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import { HomePage } from "./pages/HomePage";
 import { BlogPage } from "./pages/BlogPage";
+import { BlogPostPage } from "./pages/BlogPostPage";
 import { LoadingScreen } from "./components/ui/LoadingScreen";
 import { ChatWidget } from "./components/ui/ChatWidget";
 import { NewsletterPopup } from "./components/ui/NewsletterPopup";
@@ -28,6 +29,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/blog" element={<BlogPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
         </Routes>
       </Layout>
       <ChatWidget />

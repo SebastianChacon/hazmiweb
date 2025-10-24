@@ -32,7 +32,7 @@ export const useForm = () => {
       return;
     }
 
-    // Intentar guardar en Firebase
+    // Intentar guardar en Supabase
     const result = await saveContact(formData);
 
     if (result.success) {
@@ -42,8 +42,8 @@ export const useForm = () => {
         setFormData({ name: "", email: "", phone: "", description: "" });
       }, 3000);
     } else {
-      // Si falla Firebase, aún mostrar mensaje de éxito (fallback)
-      console.error("Firebase error, but showing success to user");
+      // Si falla Supabase, aún mostrar mensaje de éxito (fallback)
+      console.error("Supabase error, but showing success to user");
       setIsSubmitted(true);
       setTimeout(() => {
         setIsSubmitted(false);

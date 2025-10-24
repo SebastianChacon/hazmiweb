@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FadeIn } from "../components/animations/FadeIn";
 import { SEO } from "../components/SEO";
 import { Calendar, User, ArrowRight } from "lucide-react";
@@ -8,8 +9,9 @@ export const BlogPage: React.FC = () => {
   const posts = [
     {
       id: 1,
-      title: "10 Razones Por Las Que Tu Negocio Necesita Una Página Web",
-      excerpt: "En la era digital, tener presencia online no es opcional...",
+      slug: "porque-tu-empresa-necesita-pagina-web",
+      title: "Por Qué Cualquier Empresa Debería Tener Una Página Web",
+      excerpt: "En la era digital, tener presencia online no es opcional, es fundamental para el crecimiento de tu negocio.",
       date: "2025-10-10",
       author: "HazMiWeb",
       category: "Negocios",
@@ -95,13 +97,15 @@ export const BlogPage: React.FC = () => {
                       </div>
                     </div>
 
-                    <motion.button
-                      className="flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all"
-                      whileHover={{ x: 5 }}
-                    >
-                      Leer más
-                      <ArrowRight className="w-4 h-4" />
-                    </motion.button>
+                    <Link to={`/blog/${post.slug}`}>
+                      <motion.button
+                        className="flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all"
+                        whileHover={{ x: 5 }}
+                      >
+                        Leer más
+                        <ArrowRight className="w-4 h-4" />
+                      </motion.button>
+                    </Link>
                   </div>
                 </motion.article>
               </FadeIn>

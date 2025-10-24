@@ -24,6 +24,12 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: "contacto", label: "Contacto" },
   ];
 
+  // Función para manejar navegación con cierre de menú
+  const handleNavigation = (sectionId: string) => {
+    onNavigate(sectionId);
+    onToggleMenu(); // Cierra el menú móvil después de navegar
+  };
+
   return (
     <nav className="bg-white shadow-md fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,16 +39,29 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span className="font-bold text-xl text-gray-800">{COMPANY_NAME}</span>
           </Link>
 
+          {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8 items-center">
-            {isHome && navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => onNavigate(item.id)}
-                className="text-gray-700 hover:text-blue-600 transition"
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) =>
+              isHome ? (
+                // Si estamos en home, hacer scroll a la sección
+                <button
+                  key={item.id}
+                  onClick={() => onNavigate(item.id)}
+                  className="text-gray-700 hover:text-blue-600 transition"
+                >
+                  {item.label}
+                </button>
+              ) : (
+                // Si estamos en otra página, navegar a home con hash
+                <Link
+                  key={item.id}
+                  to={`/#${item.id}`}
+                  className="text-gray-700 hover:text-blue-600 transition"
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
             <Link
               to="/blog"
               className="text-gray-700 hover:text-blue-600 transition"
@@ -51,6 +70,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </Link>
           </div>
 
+          {/* Mobile Menu Button */}
           <button
             className="md:hidden"
             onClick={onToggleMenu}
@@ -61,18 +81,32 @@ export const Navbar: React.FC<NavbarProps> = ({
         </div>
       </div>
 
+      {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden bg-white border-t">
           <div className="px-4 py-3 space-y-3">
-            {isHome && navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => onNavigate(item.id)}
-                className="block w-full text-left text-gray-700 hover:text-blue-600 transition"
-              >
-                {item.label}
-              </button>
-            ))}
+            {navItems.map((item) =>
+              isHome ? (
+                // Si estamos en home, hacer scroll y cerrar menú
+                <button
+                  key={item.id}
+                  onClick={() => handleNavigation(item.id)}
+                  className="block w-full text-left text-gray-700 hover:text-blue-600 transition"
+                >
+                  {item.label}
+                </button>
+              ) : (
+                // Si estamos en otra página, navegar a home con hash
+                <Link
+                  key={item.id}
+                  to={`/#${item.id}`}
+                  className="block text-gray-700 hover:text-blue-600 transition"
+                  onClick={onToggleMenu}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
             <Link
               to="/blog"
               className="block text-gray-700 hover:text-blue-600 transition"
