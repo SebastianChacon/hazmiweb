@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface FadeInProps {
   children: React.ReactNode;
@@ -15,6 +15,14 @@ export const FadeIn: React.FC<FadeInProps> = ({
   direction = "up",
   className = "",
 }) => {
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  useEffect(() => {
+    // Activar animaciones después del primer render
+    const timer = setTimeout(() => setShouldAnimate(true), 50);
+    return () => clearTimeout(timer);
+  }, []);
+
   const directions = {
     up: { y: 40 },
     down: { y: -40 },
@@ -42,8 +50,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
   return (
     <motion.div
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      animate={shouldAnimate ? "visible" : "hidden"}
       variants={variants}
       className={className}
     >
