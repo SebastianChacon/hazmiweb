@@ -36,20 +36,20 @@ export const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section id="servicios" className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="servicios" className="section-container bg-white">
+      <div className="section-content">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="section-heading text-gray-900">
             ¿Qué Incluye el Servicio?
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="section-description text-gray-600">
             Todo lo que necesitas para empezar tu presencia digital
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service, idx) => (
-            <ServiceCard key={idx} {...service} />
+            <ServiceCard key={idx} {...service} index={idx} />
           ))}
         </div>
 

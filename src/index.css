@@ -1,1 +1,249 @@
 @import "tailwindcss";
+
+/* ============================================
+   CUSTOM THEME CONFIGURATION
+   ============================================ */
+
+@theme {
+  /* Fuentes personalizadas */
+  --font-heading: 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Sistema de espaciado personalizado */
+  --spacing-section: 6rem;      /* 96px - Entre secciones */
+  --spacing-section-sm: 4rem;   /* 64px - Móviles */
+  --spacing-content: 3rem;      /* 48px - Dentro de secciones */
+  --spacing-element: 1.5rem;    /* 24px - Entre elementos */
+
+  /* Paleta de colores principales */
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+
+  /* Colores secundarios */
+  --color-secondary-400: #a78bfa;
+  --color-secondary-500: #8b5cf6;
+  --color-secondary-600: #7c3aed;
+
+  /* Colores de acento */
+  --color-accent-cyan: #06b6d4;
+  --color-accent-pink: #ec4899;
+  --color-accent-green: #10b981;
+
+  /* Sistema de sombras personalizado */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+  /* Sombras de colores (efectos glow) */
+  --shadow-blue: 0 10px 40px -10px rgba(59, 130, 246, 0.5);
+  --shadow-purple: 0 10px 40px -10px rgba(139, 92, 246, 0.5);
+  --shadow-cyan: 0 10px 40px -10px rgba(6, 182, 212, 0.5);
+  --shadow-pink: 0 10px 40px -10px rgba(236, 72, 153, 0.5);
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    @apply antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    @apply font-semibold;
+  }
+}
+
+/* ============================================
+   COMPONENT STYLES
+   ============================================ */
+
+@layer components {
+  /* Secciones estandarizadas */
+  .section-container {
+    @apply py-24 md:py-32 px-4 md:px-8;
+  }
+
+  .section-content {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold mb-12 md:mb-16 text-center;
+    font-family: var(--font-heading);
+  }
+
+  .section-description {
+    @apply text-lg md:text-xl text-gray-300 text-center max-w-3xl mx-auto mb-12;
+    font-family: var(--font-body);
+  }
+
+  /* Sección con efecto de capas */
+  .section-layered {
+    position: relative;
+  }
+
+  .section-layered::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    pointer-events: none;
+  }
+}
+
+/* ============================================
+   UTILITY STYLES
+   ============================================ */
+
+@layer utilities {
+  /* Gradientes de marca */
+  .bg-gradient-brand {
+    background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-secondary-600) 100%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-secondary-400) 100%);
+  }
+
+  /* Sombras de elevación */
+  .elevation-1 {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .elevation-2 {
+    box-shadow: var(--shadow-md);
+  }
+
+  .elevation-3 {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .elevation-4 {
+    box-shadow: var(--shadow-xl);
+  }
+
+  .elevation-5 {
+    box-shadow: var(--shadow-2xl);
+  }
+
+  /* Efectos glow con colores */
+  .glow-blue {
+    box-shadow: var(--shadow-blue);
+  }
+
+  .glow-purple {
+    box-shadow: var(--shadow-purple);
+  }
+
+  .glow-cyan {
+    box-shadow: var(--shadow-cyan);
+  }
+
+  .glow-pink {
+    box-shadow: var(--shadow-pink);
+  }
+
+  /* Animaciones de hover */
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-2;
+  }
+
+  .hover-glow {
+    @apply transition-shadow duration-300 hover:shadow-xl;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .hover-elevate {
+    @apply transition-shadow duration-300;
+  }
+
+  .hover-elevate:hover {
+    box-shadow: var(--shadow-2xl);
+  }
+
+  /* Padding responsive */
+  .px-responsive {
+    @apply px-4 sm:px-6 md:px-8 lg:px-12;
+  }
+
+  .py-responsive {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24;
+  }
+
+  /* Texto responsive */
+  .text-responsive-sm {
+    @apply text-sm sm:text-base;
+  }
+
+  .text-responsive-base {
+    @apply text-base sm:text-lg md:text-xl;
+  }
+
+  .text-responsive-lg {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl;
+  }
+
+  /* Animaciones personalizadas */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(59, 130, 246, 0.8);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+}

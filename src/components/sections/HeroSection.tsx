@@ -15,19 +15,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onNavigateToServices,
 }) => {
   return (
-    <section id="inicio" className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <section id="inicio" className="section-container relative overflow-hidden">
       {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full filter blur-3xl opacity-30 -z-10" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-100 rounded-full filter blur-3xl opacity-30 -z-10" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full filter blur-3xl opacity-30 -z-10 animate-pulse" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-100 rounded-full filter blur-3xl opacity-30 -z-10 animate-pulse" />
 
-      <div className="max-w-7xl mx-auto">
+      <div className="section-content">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <FadeIn delay={0.2}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                 Tu Página Web Profesional por solo{" "}
                 <motion.span
-                  className="text-blue-600"
+                  className="text-gradient"
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
@@ -37,7 +37,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </FadeIn>
 
             <FadeIn delay={0.4}>
-              <p className="text-xl text-gray-600">
+              <p className="text-responsive-base text-gray-600">
                 Impulsa tu negocio con una presencia digital moderna, rápida y
                 efectiva. Sin complicaciones, sin costos ocultos.
               </p>
@@ -62,7 +62,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <ScaleIn delay={0.3}>
             <div className="relative">
               <motion.div
-                className="bg-gradient-to-tr from-blue-500 to-purple-600 rounded-2xl p-8 shadow-2xl"
+                className="bg-gradient-brand rounded-2xl p-8 elevation-5 glow-blue"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
