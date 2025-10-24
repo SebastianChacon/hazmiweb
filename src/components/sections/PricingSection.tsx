@@ -19,9 +19,7 @@ interface PricingSectionProps {
   onNavigateToContact: () => void;
 }
 
-export const PricingSection: React.FC<PricingSectionProps> = ({
-  onNavigateToContact,
-}) => {
+export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigateToContact }) => {
   const plans: Plan[] = [
     {
       name: "Básico",
@@ -40,7 +38,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
     },
     {
       name: "Profesional",
-      price: "$45",
+      price: "$69",
       description: "Para negocios en crecimiento",
       icon: Star,
       color: "from-purple-500 to-purple-600",
@@ -58,7 +56,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
     },
     {
       name: "Premium",
-      price: "$80",
+      price: "$178",
       description: "Solución completa",
       icon: Crown,
       color: "from-amber-500 to-amber-600",
@@ -77,16 +75,12 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
   ];
 
   return (
-    <section id="precios" className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="precios" className="section-container bg-white">
+      <div className="section-content">
         <FadeIn>
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Planes Que Se Adaptan a Tu Negocio
-            </h2>
-            <p className="text-xl text-gray-600">
-              Elige el plan perfecto para tus necesidades
-            </p>
+            <h2 className="section-heading text-gray-900">Planes Que Se Adaptan a Tu Negocio</h2>
+            <p className="section-description text-gray-600">Elige el plan perfecto para tus necesidades</p>
           </div>
         </FadeIn>
 
@@ -96,8 +90,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             return (
               <ScaleIn key={idx} delay={idx * 0.15}>
                 <motion.div
-                  className={`relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all border-2 ${
-                    plan.popular ? "border-purple-500 scale-105" : "border-gray-100"
+                  className={`relative bg-white rounded-2xl elevation-3 hover-elevate transition-all border-2 ${
+                    plan.popular ? "border-purple-500 scale-105 glow-purple" : "border-gray-100"
                   }`}
                   whileHover={{ y: -10 }}
                 >
@@ -111,20 +105,16 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
 
                   <div className="p-8">
                     <div
-                      className={`w-12 h-12 bg-gradient-to-r ${plan.color} rounded-lg flex items-center justify-center mb-4`}
+                      className={`w-12 h-12 bg-gradient-to-r ${plan.color} rounded-lg flex items-center justify-center mb-4 elevation-2`}
                     >
                       <Icon className="w-6 h-6 text-white" />
                     </div>
 
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      {plan.name}
-                    </h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
                     <p className="text-gray-600 mb-4">{plan.description}</p>
 
                     <div className="mb-6">
-                      <span className="text-5xl font-bold text-gray-900">
-                        {plan.price}
-                      </span>
+                      <span className="text-5xl font-bold text-gray-900">{plan.price}</span>
                       <span className="text-gray-600 ml-2">/ una vez</span>
                     </div>
 

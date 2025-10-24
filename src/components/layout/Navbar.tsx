@@ -35,7 +35,14 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-2">
-            <img src={logo} alt={COMPANY_NAME} className="w-8 h-8 object-contain" />
+            <img
+              src={logo}
+              alt={`${COMPANY_NAME} - Creación de sitios web profesionales`}
+              className="w-8 h-8 object-contain"
+              loading="eager"
+              width="32"
+              height="32"
+            />
             <span className="font-bold text-xl text-gray-800">{COMPANY_NAME}</span>
           </Link>
 

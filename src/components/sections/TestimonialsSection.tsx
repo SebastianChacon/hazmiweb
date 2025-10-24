@@ -44,14 +44,14 @@ export const TestimonialsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-slate-50 to-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-container bg-gradient-to-br from-slate-50 to-blue-50">
+      <div className="section-content">
         <FadeIn>
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="section-heading text-gray-900">
               Lo Que Dicen Nuestros Clientes
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="section-description text-gray-600">
               Más de 100 negocios confían en nosotros
             </p>
           </div>
@@ -61,13 +61,13 @@ export const TestimonialsSection: React.FC = () => {
           {testimonials.map((testimonial, idx) => (
             <FadeIn key={idx} delay={idx * 0.2}>
               <motion.div
-                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-shadow relative"
+                className="bg-white rounded-xl p-6 elevation-2 hover-elevate hover-lift relative"
                 whileHover={{ y: -5 }}
               >
                 <Quote className="absolute top-4 right-4 w-8 h-8 text-blue-100" />
 
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+                  <div className="w-12 h-12 bg-gradient-brand rounded-full flex items-center justify-center text-white font-bold elevation-2">
                     {testimonial.avatar}
                   </div>
                   <div>

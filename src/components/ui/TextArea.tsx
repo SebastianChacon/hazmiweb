@@ -19,8 +19,8 @@ export const TextArea: React.FC<TextAreaProps> = ({
       </label>
       <textarea
         id={id}
-        className={`w-full px-4 py-3 border-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-          error ? "border-red-500" : "border-gray-300"
+        className={`w-full px-4 py-3 border-2 rounded-lg elevation-1 focus:elevation-3 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 ${
+          error ? "border-red-500 focus:border-red-600" : "border-gray-300 focus:border-blue-500"
         }`}
         aria-required={required}
         {...props}

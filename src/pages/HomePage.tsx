@@ -8,6 +8,8 @@ import { PricingSection } from "../components/sections/PricingSection";
 import { FAQSection } from "../components/sections/FAQSection";
 import { ContactSection } from "../components/sections/ContactSection";
 import { SEO } from "../components/SEO";
+import { StructuredData } from "../components/common/StructuredData";
+import { organizationSchema, serviceSchema, websiteSchema, faqSchema } from "../utils/schemas";
 import { useScrollTo } from "../hooks/useScrollTo";
 import { useForm } from "../hooks/useForm";
 
@@ -31,6 +33,10 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <SEO />
+      <StructuredData data={organizationSchema} />
+      <StructuredData data={serviceSchema} />
+      <StructuredData data={websiteSchema} />
+      <StructuredData data={faqSchema} />
       <HeroSection
         onNavigateToContact={() => scrollToSection("contacto")}
         onNavigateToServices={() => scrollToSection("servicios")}
