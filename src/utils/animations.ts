@@ -68,7 +68,7 @@ export const staggerItem = {
 // Transición suave por defecto
 export const defaultTransition = {
   duration: 0.5,
-  ease: [0.6, -0.05, 0.01, 0.99]
+  ease: [0.6, -0.05, 0.01, 0.99] as const
 }
 
 // Transición con spring (rebote)

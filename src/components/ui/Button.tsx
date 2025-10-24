@@ -1,16 +1,28 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
   variant?: "primary" | "secondary" | "gradient";
   children: React.ReactNode;
+  className?: string;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  type?: "button" | "submit" | "reset";
+  disabled?: boolean;
+  form?: string;
+  name?: string;
+  value?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   children,
   className = "",
-  ...props
+  onClick,
+  type = "button",
+  disabled,
+  form,
+  name,
+  value,
 }) => {
   const variants = {
     primary:
@@ -27,7 +39,12 @@ export const Button: React.FC<ButtonProps> = ({
       whileTap={{ scale: 0.98 }}
       transition={{ type: "spring", stiffness: 400, damping: 17 }}
       className={`px-8 py-4 rounded-lg font-semibold transition-all duration-300 ${variants[variant]} ${className}`}
-      {...props}
+      onClick={onClick}
+      type={type}
+      disabled={disabled}
+      form={form}
+      name={name}
+      value={value}
     >
       {children}
     </motion.button>
