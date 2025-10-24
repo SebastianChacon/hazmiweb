@@ -1,0 +1,41 @@
+# robots.txt para HazMiWeb
+
+# Permitir a todos los bots rastrear todo el sitio
+User-agent: *
+Allow: /
+
+# Bloquear archivos temporales y de configuración
+Disallow: /*.json$
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.vscode/
+
+# Sitemap
+Sitemap: https://hazmiweb.com/sitemap.xml
+
+# Configuración para bots específicos de Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Configuración para Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Configuración para bots de redes sociales
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Bloquear bots de scraping agresivos (opcional)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: DotBot
+Crawl-delay: 10

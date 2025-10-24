@@ -25,8 +25,9 @@ export const LoadingScreen: React.FC = () => {
           <div className="text-center">
             <motion.img
               src={logo}
-              alt="Logo"
+              alt="HazMiWeb - Logo de diseño web profesional"
               className="w-24 h-24 mx-auto mb-8"
+              loading="eager"
               animate={{
                 scale: [1, 1.2, 1],
                 rotate: [0, 360],
