@@ -4,9 +4,9 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-  <!-- Página principal -->
+  <!-- Página Principal -->
   <url>
-    <loc>https://hazmiweb.com/</loc>
+    <loc>https://hazmiweb.lat/</loc>
     <lastmod>2025-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- Sección Servicios -->
   <url>
-    <loc>https://hazmiweb.com/#servicios</loc>
+    <loc>https://hazmiweb.lat/#servicios</loc>
     <lastmod>2025-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -22,7 +22,7 @@
 
   <!-- Sección Contacto -->
   <url>
-    <loc>https://hazmiweb.com/#contacto</loc>
+    <loc>https://hazmiweb.lat/#contacto</loc>
     <lastmod>2025-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -30,7 +30,7 @@
 
   <!-- Sección Precios -->
   <url>
-    <loc>https://hazmiweb.com/#precios</loc>
+    <loc>https://hazmiweb.lat/#precios</loc>
     <lastmod>2025-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -38,7 +38,7 @@
 
   <!-- Blog -->
   <url>
-    <loc>https://hazmiweb.com/blog</loc>
+    <loc>https://hazmiweb.lat/blog</loc>
     <lastmod>2025-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -46,21 +46,21 @@
 
   <!-- Artículos del Blog -->
   <url>
-    <loc>https://hazmiweb.com/blog/diseno-web-moderno</loc>
+    <loc>https://hazmiweb.lat/blog/diseno-web-moderno</loc>
     <lastmod>2025-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://hazmiweb.com/blog/seo-basico</loc>
+    <loc>https://hazmiweb.lat/blog/seo-basico</loc>
     <lastmod>2025-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://hazmiweb.com/blog/importancia-sitio-web</loc>
+    <loc>https://hazmiweb.lat/blog/importancia-sitio-web</loc>
     <lastmod>2025-10-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

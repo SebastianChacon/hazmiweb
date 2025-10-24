@@ -14,7 +14,7 @@ export const SEO: React.FC<SEOProps> = ({
   description = "Creamos páginas web profesionales, modernas y rápidas para impulsar tu negocio. Diseño responsive, SEO optimizado y hosting incluido.",
   keywords = "diseño web, páginas web ecuador, desarrollo web, sitios web baratos, landing pages",
   image = "/og-image.jpg",
-  url = "https://hazmiweb.com",
+  url = "https://hazmiweb.lat",
 }) => {
   return (
     <Helmet>

@@ -1,4 +1,5 @@
 # robots.txt para HazMiWeb
+# https://hazmiweb.lat
 
 # Permitir a todos los bots rastrear todo el sitio
 User-agent: *
@@ -9,9 +10,11 @@ Disallow: /*.json$
 Disallow: /node_modules/
 Disallow: /.git/
 Disallow: /.vscode/
+Disallow: /admin/
+Disallow: /private/
 
 # Sitemap
-Sitemap: https://hazmiweb.com/sitemap.xml
+Sitemap: https://hazmiweb.lat/sitemap.xml
 
 # Configuración para bots específicos de Google
 User-agent: Googlebot
