@@ -5,7 +5,6 @@ import { BlogPage } from "./pages/BlogPage";
 import { BlogPostPage } from "./pages/BlogPostPage";
 import { LoadingScreen } from "./components/ui/LoadingScreen";
 import { ChatWidget } from "./components/ui/ChatWidget";
-import { NewsletterPopup } from "./components/ui/NewsletterPopup";
 import { ScrollToTop } from "./components/ScrollToTop";
 import { useMobileMenu } from "./hooks/useMobileMenu";
 import { useScrollTo } from "./hooks/useScrollTo";
@@ -35,7 +34,6 @@ const App = () => {
         </Routes>
       </Layout>
       <ChatWidget />
-      <NewsletterPopup />
     </BrowserRouter>
   );
 };
