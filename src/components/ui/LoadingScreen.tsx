@@ -8,7 +8,7 @@ export const LoadingScreen: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 600);
 
     return () => clearTimeout(timer);
   }, []);
@@ -20,7 +20,7 @@ export const LoadingScreen: React.FC = () => {
           className="fixed inset-0 bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center z-50"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
         >
           <div className="text-center">
             <motion.img
