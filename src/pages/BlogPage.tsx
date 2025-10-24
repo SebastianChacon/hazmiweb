@@ -19,8 +19,9 @@ export const BlogPage: React.FC = () => {
     },
     {
       id: 2,
+      slug: "como-elegir-diseno-perfecto-sitio-web",
       title: "Cómo Elegir El Diseño Perfecto Para Tu Sitio Web",
-      excerpt: "El diseño de tu página web es la primera impresión que...",
+      excerpt: "El diseño de tu página web es la primera impresión que tendrán tus visitantes. Descubre cómo elegir colores, tipografías y layouts que conviertan.",
       date: "2025-10-05",
       author: "HazMiWeb",
       category: "Diseño",
@@ -28,8 +29,9 @@ export const BlogPage: React.FC = () => {
     },
     {
       id: 3,
+      slug: "seo-basico-posiciona-sitio-google",
       title: "SEO Básico: Posiciona Tu Sitio En Google",
-      excerpt: "Aprende las técnicas fundamentales para mejorar tu visibilidad...",
+      excerpt: "Aprende las técnicas fundamentales para mejorar tu visibilidad en buscadores y atraer más tráfico orgánico a tu sitio web.",
       date: "2025-09-28",
       author: "HazMiWeb",
       category: "Marketing",
