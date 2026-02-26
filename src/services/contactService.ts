@@ -2,6 +2,11 @@ import { supabase } from '../config/supabase';
 import type { FormData } from '../types';
 
 export const saveContact = async (data: FormData) => {
+  if (!supabase) {
+    // Supabase no configurado — se muestra éxito igual (sin backend)
+    return { success: true, id: null };
+  }
+
   try {
     const { data: contact, error } = await supabase
       .from('contacts')
@@ -27,12 +32,9 @@ export const saveContact = async (data: FormData) => {
     console.error('❌ Error saving contact to Supabase:');
     console.error('Code:', error.code);
     console.error('Message:', error.message);
-    console.error('Details:', error.details);
 
-    // Explicar errores específicos
     if (error.code === '42501') {
       console.error('🔒 Row Level Security is blocking this operation.');
-      console.error('👉 Check your RLS policies in Supabase Dashboard');
     } else if (error.code === 'PGRST301') {
       console.error('🌐 Network issue or Supabase is temporarily unavailable.');
     }

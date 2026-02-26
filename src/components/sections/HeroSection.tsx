@@ -23,13 +23,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="section-content">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
+            <FadeIn delay={0.1}>
+              <span className="inline-block bg-blue-100 text-blue-700 text-sm font-semibold px-4 py-1.5 rounded-full tracking-wide uppercase">
+                Desarrollo Web Profesional
+              </span>
+            </FadeIn>
+
             <FadeIn delay={0.2}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                Tu Página Web Profesional por solo{" "}
+                Tu Sitio Web a Medida{" "}
                 <motion.span
                   className="text-gradient"
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                  animate={{ scale: [1, 1.04, 1] }}
+                  transition={{ duration: 2.5, repeat: Infinity }}
                 >
                   {PRICE}
                 </motion.span>
@@ -38,8 +44,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             <FadeIn delay={0.4}>
               <p className="text-responsive-base text-gray-600">
-                Impulsa tu negocio con una presencia digital moderna, rápida y
-                efectiva. Sin complicaciones, sin costos ocultos.
+                Desde landing pages hasta aplicaciones web complejas. Diseño moderno,
+                entrega rápida y soporte incluido. Sin costos ocultos.
               </p>
             </FadeIn>
 
