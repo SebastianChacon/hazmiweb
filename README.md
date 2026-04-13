@@ -1,75 +1,152 @@
-# React + TypeScript + Vite
+<div align="center">
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🌐 HazMiWeb
 
-Currently, two official plugins are available:
+### Web Development Services Platform · Built with React + TypeScript + Supabase
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[![Live Demo](https://img.shields.io/badge/Live_Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://hazmiweb.vercel.app)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev)
+[![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)](https://supabase.com)
 
-## React Compiler
+</div>
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## 📌 About
 
-## Expanding the ESLint configuration
+**HazMiWeb** is a professional web development services website showcasing four service tiers — from quick landing pages to full custom web applications. Potential clients can explore packages, view pricing, and get in touch directly through the platform.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+> 🔗 Live at: [hazmiweb.vercel.app](https://hazmiweb.vercel.app)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## ✨ Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **Service catalog** with 4 tiers and transparent pricing
+- **Add-ons section** — SEO, hosting, maintenance, and more
+- **"How It Works"** — 6-step process breakdown for clients
+- **Contact form** with Supabase backend integration
+- **Fully responsive** — optimized for mobile, tablet, and desktop
+- **SEO-optimized** with structured metadata and performance best practices
+
+---
+
+## 💼 Service Packages
+
+| Package | Description | Price Range |
+|---|---|---|
+| 🚀 Landing Page | Single-page responsive site for entrepreneurs | $200 – $250 |
+| 🏢 Corporate Site | Multi-page professional website with gallery & maps | $400 – $600 |
+| 🛒 E-Commerce | Full shopping platform with payments & inventory | $700 – $1,200 |
+| ⚙️ Custom Web App | Tailored solution with database & dashboard | $1,200 – $2,500+ |
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | React 18 + TypeScript |
+| Build Tool | Vite |
+| Styling | Tailwind CSS |
+| Backend / DB | Supabase |
+| Deployment | Vercel |
+| Linting | ESLint |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- A [Supabase](https://supabase.com) project
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/SebastianChacon/hazmiweb.git
+cd hazmiweb
+
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Environment Variables
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
+
+### Database Setup
+
+Run the included SQL script in your Supabase SQL editor:
+
+```bash
+# File: supabase_setup.sql
+```
+
+### Development
+
+```bash
+npm run dev        # Start dev server at http://localhost:5173
+npm run build      # Build for production
+npm run preview    # Preview production build
+npm run lint       # Run ESLint
+```
+
+---
+
+## 📁 Project Structure
+
+```
+hazmiweb/
+├── public/              # Static assets
+├── src/
+│   ├── assets/          # Images and media
+│   ├── components/      # Reusable UI components
+│   ├── config/          # App configuration
+│   ├── hooks/           # Custom React hooks
+│   ├── pages/           # Page-level components
+│   ├── services/        # Supabase & API integrations
+│   ├── types/           # TypeScript type definitions
+│   ├── utils/           # Helper functions
+│   └── App.tsx          # Root component
+├── supabase_setup.sql   # Database schema
+├── .env.example         # Environment variables template
+└── vite.config.ts       # Vite configuration
+```
+
+---
+
+## 🚢 Deployment
+
+This project is deployed on **Vercel**. To deploy your own instance:
+
+1. Fork this repository
+2. Import it into [Vercel](https://vercel.com)
+3. Add the environment variables in the Vercel dashboard
+4. Deploy — Vercel auto-deploys on every push to `main`
+
+---
+
+## 👤 Author
+
+**Sebastian Chacon** — Full Stack Developer
+
+[![GitHub](https://img.shields.io/badge/GitHub-SebastianChacon-100000?style=flat&logo=github)](https://github.com/SebastianChacon)
+[![Email](https://img.shields.io/badge/Email-chacontsebastian@gmail.com-D14836?style=flat&logo=gmail&logoColor=white)](mailto:chacontsebastian@gmail.com)
+
+---
+
+<div align="center">
+
+*Built with ❤️ using React, TypeScript & Supabase*
+
+</div>
